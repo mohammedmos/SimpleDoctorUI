@@ -22,3 +22,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Live Preview
+See [Assessment](https://assessemtsimpleui.000webhostapp.com/).
