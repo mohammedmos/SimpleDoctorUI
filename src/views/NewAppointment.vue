@@ -1,5 +1,5 @@
 <template>
-  <div class="my-5 mx-10">
+  <div v-if="mobile" class="my-5 mx-10">
 
     <div class="flex justify-between content-center  my-16">
       <div class="my-2">
@@ -32,14 +32,19 @@
       Prendre rendez-vous
     </router-link>
   </div>
+  <div v-else>
+    <AppointmentResponsive />
+  </div>
 </template>
 
 <script>
 import Review from "@/components/Review";
+import AppointmentResponsive from "@/components/AppointmentResponsive";
 export default {
   name: "NewAppointment",
   components:{
-    Review
+    Review,
+    AppointmentResponsive
   },
   data(){
     return{
@@ -49,7 +54,28 @@ export default {
           branch:"Chirurgie dentaire",
           localization:"CHU Mustapha",
           wilaya:"Alger",
-        }
+        },
+      mobile: false,
+
+    }
+  },
+  created() {
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      this.mobile= true
+    } else {
+      this.mobile= false
+    }
+  },
+  mounted() {
+    window.addEventListener('resize', this.isMobile);
+  }
+  , methods: {
+    isMobile() {
+      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        this.mobile= true
+      } else {
+        this.mobile= false
+      }
     }
   }
 }

@@ -3,8 +3,8 @@
     <!--- more free and premium Tailwind CSS components at https://tailwinduikit.com/ --->
 
     <div class="max-w-sm w-full ">
-      <div class="md:px-8 px-1   ">
-        <div class="flex items-center justify-between pt-12 overflow-x-auto">
+      <div class=" px-1   ">
+        <div class="flex items-center justify-between pt-4 overflow-x-auto">
           <table class="w-full">
             <thead>
             <tr>

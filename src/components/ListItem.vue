@@ -1,6 +1,6 @@
 <template>
 
-        <div class="grid  md:grid-cols-3 grid-cols-3 mb-4">
+        <div class="grid gap-4 md:grid-cols-3 grid-cols-3 mb-4">
           <div class="relative w-24 h-24 max-h-full rounded-xl shadow sm:h-24">
             <img class="absolute object-cover w-24 h-24 rounded-xl" src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260" alt="Person" />
           </div>

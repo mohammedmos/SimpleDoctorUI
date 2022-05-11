@@ -1,6 +1,13 @@
 <template>
-<div v-for="n in numbers" :key="n" >
-  <ProgressBar :width="n"/>
+<div v-for="(n,index) in numbers" :key="index" >
+  <div class="grid grid-cols-10 content-center">
+    <p class="text-cyan-700 ">{{index+1}}</p>
+    <div class="col-span-9">
+      <ProgressBar :width="n"/>
+    </div>
+
+
+  </div>
 </div>
 </template>
 

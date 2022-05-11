@@ -1,7 +1,7 @@
 <template>
 
 
-  <div class="">
+  <div v-if="mobile" class="">
 
     <div class="flex justify-between mx-10 mt-8">
           <p class="font-bold text-left text-xl text-cyan-700 flex flex-col">
@@ -27,22 +27,28 @@
       <ListItems :doctors="doctor"/>
     </div>
   </div>
+  <div v-else>
+    <HomeResponsive/>
+
+  </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import ListItems from '@/components/ListItems.vue'
 import SearchBox from "@/components/SearchBox";
+import HomeResponsive from "@/components/HomeResponsive";
 
 export default {
   name: 'HomeView',
   components: {
     ListItems,
-    SearchBox
+    SearchBox,
+    HomeResponsive
   },
   data(){
     return{
-    message:"test",
+    mobile: false,
     doctor:[
       {
         name:"Dr. Amine Mohamed",
@@ -155,7 +161,28 @@ export default {
         localization:"CHU Mustapha",
         wilaya:"Alger",
       },
-    ]
+    ],
+
+
+    }
+  },
+  created() {
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      this.mobile= true
+    } else {
+      this.mobile= false
+    }
+  },
+  mounted() {
+    window.addEventListener('resize', this.isMobile);
+  }
+  , methods: {
+    isMobile() {
+      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        this.mobile= true
+      } else {
+        this.mobile= false
+      }
     }
   }
 }
