@@ -4,7 +4,10 @@
     <p class="font-smibold text-md text-black text-center py-6 mt-6 ">Similar</p>
     <div class="my-5 bg-gray-100 px-6 py-8">
       <div v-for="(doc,index) in doctors" :key="index">
+        <router-link to="/new">
           <ListItem :doctor="doc"/>
+        </router-link>
+
         <hr class="mb-2">
       </div>
     </div>
@@ -67,7 +70,9 @@
         <div>
           <div v-for="(doc,index) in doctors" :key="index">
             <div class="bg-gray-100 rounded-lg p-2 my-4">
+              <router-link to="/new">
               <ResponsiveItem :doctor="doc"/>
+              </router-link>
 
             </div>
           </div>

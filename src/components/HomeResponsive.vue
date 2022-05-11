@@ -25,6 +25,17 @@
     <Filters/>
 
     <div class="  w-full  md:px-6  py-2 ">
+      <p class="font-bold text-black text-left mx-5 my-4 text-lg">A la une </p>
+      <div class="grid grid-cols-4 md:grid-cols-4 sm:grid-cols-1 xs:grid-cols-1 gap-8 mx-16">
+        <div v-for="element in message" :key="element">
+          <router-link :to="'/new'">
+          <Slide></Slide>
+          </router-link>
+        </div>
+
+      </div>
+      <p class="font-bold text-black text-left mx-5 my-4 text-lg">Recommended</p>
+
       <ListItemsResponsive :doctors="doctor"/>
     </div>
   </div>
@@ -34,15 +45,17 @@
 <script>
 import ListItemsResponsive from '@/components/ListItemsResponsive.vue';
 import Filters from "@/components/Filters";
+import Slide from '@/components/Slide'
 export default {
   name: "HomeResponsive",
   components: {
     ListItemsResponsive,
-    Filters
+    Filters,
+    Slide
   },
   data(){
     return{
-      message:"test",
+      message:[1,2,3,4],
       doctor:[
         {
           name:"Dr. Amine Mohamed",
@@ -153,7 +166,7 @@ export default {
       ],
       methods: {
         isMobile() {
-          if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+          if(window.innerWidth <= 500) {
             return true
           } else {
             return false

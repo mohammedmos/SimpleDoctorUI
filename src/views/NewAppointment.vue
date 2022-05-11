@@ -60,18 +60,21 @@ export default {
     }
   },
   created() {
-    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    if(window.innerWidth <= 1024) {
       this.mobile= true
     } else {
       this.mobile= false
     }
-  },
-  mounted() {
     window.addEventListener('resize', this.isMobile);
+
+  }
+  ,
+  unmounted() {
+    window.removeEventListener("resize", this.isMobile);
   }
   , methods: {
     isMobile() {
-      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      if(window.innerWidth <= 1024) {
         this.mobile= true
       } else {
         this.mobile= false
